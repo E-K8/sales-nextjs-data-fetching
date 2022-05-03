@@ -5,8 +5,11 @@ function LastSalesPage() {
   const [sales, setSales] = useState();
   // const [isLoading, setIsLoading] = useState(false);
 
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+
   const { data, error } = useSWR(
-    'https://nextjs-data-fetch-ebf5b-default-rtdb.europe-west1.firebasedatabase.app/sales.json'
+    'https://nextjs-data-fetch-ebf5b-default-rtdb.europe-west1.firebasedatabase.app/sales.json',
+    fetcher
   );
 
   useEffect(() => {
